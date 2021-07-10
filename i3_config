@@ -121,6 +121,8 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Escape exec dunstctl close
 bindsym Shift+$mod+Escape exec dunstctl close-all
 
+bindsym Menu exec /home/val/.config/eww/launch_eww
+
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
@@ -134,6 +136,7 @@ bindsym $mod+Shift+s exec scrot ~/Images/scrot/%b%d_%H-%M-%S.png
 #/____/\__/\__,_/_/   \__/\__,_/ .___/
 #                             /_/
 exec_always feh --bg-scale ~/.background
+exec_always xrdb ~/.Xresources
 exec ~/.bin/picom-ibhagwan/picom
 exec redshift &
 exec dunst
@@ -157,3 +160,4 @@ for_window [class="Org.gnome.Nautilus"] floating enable
 for_window [class="Pick-colour-picker"] floating enable
 for_window [class="rofi"] border pixel 0
 for_window [class="Tk" title="sysmenu"] floating enable
+
