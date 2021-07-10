@@ -1,0 +1,115 @@
+<eww>
+	<variables>
+		<!-- System Variables -->
+		<script-var name="HOSTNAME" interval="24h">hostname</script-var>
+		<script-var name="USERNAME" interval="24h">whoami</script-var>
+		<script-var name="CPU_USAGE" interval="1s">~/.config/eww/scripts/cpu</script-var>
+		<script-var name="RAM_USAGE" interval="1s">~/.config/eww/scripts/ram</script-var>
+		<script-var name="SSD_USAGE" interval="1m">df -h / | awk '{print substr($3, 1, length($3)-1) "/" $2}' | tail -n 1 | sed 's/G/GB/'</script-var>
+
+		<var name="IMAGE">/home/val/.face.icon</var>
+
+		<!-- Time Variables -->
+		<script-var name="HOUR" interval="1m">date +"%I"</script-var>
+		<script-var name="MINUTE" interval="1s">date +"%M"</script-var>
+		<script-var name="AMPM" interval="1m">date +"%p"</script-var>
+		<script-var name="DAY" interval="2m">date +"%a"</script-var>
+	</variables>
+
+	<definitions>
+
+		<def name="bg">
+			<box class="bg"/>
+		</def>
+
+		<def name="user">
+			<box class="genwin" orientation="v" spacing="35" space-evenly="false" vexpand="false" hexpand="false">
+				<box style="background-image: url('{{IMAGE}}');" class="face" halign="center"/>
+				<label class="login" halign="center" wrap="true" limit-width="25" text="{{USERNAME}}@{{HOSTNAME}}"/>
+			</box>
+		</def>
+
+		<def name="system">
+			<box class="genwin" vexpand="false" hexpand="false">
+				<box orientation="v" spacing="35" halign="center" valign="center" space-evenly="false" vexpand="false" hexpand="false">
+					<box class="cpu_bar" orientation="h" spacing="20" space-evenly="true" vexpand="false" hexpand="false">
+						<label text="CPU"/>
+						<label text="|"/>
+						<label text="{{CPU_USAGE}}%" active="false"/>
+						<!--scale min="0" max="100" value="{{CPU_USAGE}}" active="false"/-->
+					</box>
+					<box class="ram_bar" orientation="h" spacing="20" space-evenly="true" vexpand="false" hexpand="false">
+						<label text="RAM"/>
+						<label text="|"/>
+						<label text="{{RAM_USAGE}}"/>
+						<!--scale min="0" max="100" value="{{RAM_USAGE}}" active="false"/-->
+					</box>
+					<box class="disk_bar" orientation="h" spacing="20" space-evenly="true" vexpand="false" hexpand="false">
+						<label text="SSD"/>
+						<label text="|"/>
+						<label text="{{SSD_USAGE}}"/>
+					</box>
+				</box>
+			</box>
+		</def>
+
+
+		<def name="clock">
+			<box class="genwin" orientation="h" space-evenly="false" vexpand="false" hexpand="false">
+				<label class="time_hour" valign="start" wrap="true" limit-width="25" text="{{HOUR}}"/>
+				<label class="time_min" valign="end" wrap="true" limit-width="25" text="{{MINUTE}}"/>
+				<box orientation="v" spacing="25" space-evenly="false" vexpand="false" hexpand="false">
+					<label class="time_ampm" halign="end" wrap="true" limit-width="25" text="{{AMPM}}"/>
+					<label class="time_day" halign="end" wrap="true" limit-width="25" text="{{DAY}}"/>
+				</box>
+			</box>
+		</def>
+
+		<!-- Buttons -->
+		<def name="logout">
+			<box class="genwin" vexpand="false" hexpand="false">
+				<button class="btn_logout" onclick="i3-msg exit">logout</button>
+			</box>
+		</def>
+
+	</definitions>
+	<windows>
+
+		<window name="background" stacking="fg" focusable="true">
+			<geometry x="0" y="0" width="1920px" height="1080px"/>
+			<widget>
+				<bg/>
+			</widget>
+		</window>
+
+		<window name="profile" stacking="fg" focusable="false">
+			<geometry x="150" y="150" width="350" height="440"/>
+			<widget>
+				<user/>
+			</widget>
+		</window>
+
+		<window name="system" stacking="fg" focusable="false">
+			<geometry x="150" y="605" width="350" height="325"/>
+			<widget>
+				<system/>
+			</widget>
+		</window>
+
+		<window name="clock" stacking="fg" focusable="false">
+			<geometry x="515" y="150" width="350" height="155"/>
+			<widget>
+				<clock/>
+			</widget>
+		</window>
+
+		<!-- Buttons -->
+		<window name="logout" stacking="fg" focusable="false">
+			<geometry x="1445" y="150" width="155" height="155"/>
+			<widget>
+				<logout/>
+			</widget>
+		</window>
+
+	</windows>
+</eww>

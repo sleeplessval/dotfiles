@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+printf "%s" $(free -g | grep Mem | awk '{print $3 "/" $2 "GB"}')

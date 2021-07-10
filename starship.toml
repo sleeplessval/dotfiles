@@ -1,0 +1,52 @@
+[package]
+symbol = ""
+
+[cmake]
+#symbol = "C "
+symbol = " "
+
+[dotnet]
+format = "[$symbol($version )]($style)"
+#symbol = " "
+
+[golang]
+symbol = "GO "
+#symbol = "ﳑ "
+
+[java]
+symbol = "Java "
+#symbol = " "
+
+[nodejs]
+symbol = "NodeJS "
+#symbol = " "
+
+[lua]
+symbol = "Lua "
+#symbol = " "
+
+[python]
+symbol = "Py "
+#symbol = " "
+#symbol = " "
+
+[ruby]
+symbol = "Ruby "
+#symbol = " "
+#symbol = " "
+
+[rust]
+symbol = "Rs "
+#symbol = " "
+
+[shell]
+disabled = true
+bash_indicator = ""
+format = "$indicator"
+
+[shlvl]
+disabled = false
+threshold = 3
+symbol = "ﰬ"
+format = "[$symbol]($style) "
+

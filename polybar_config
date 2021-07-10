@@ -1,0 +1,138 @@
+
+[bar/top]
+monitor = "DP-3"
+background = #88000000
+foreground = #FFFFFF
+font-0 = Helvetica Neue:style=Regular:pixelsize=11;2
+font-1 = FiraCode Nerd Font:style=Regular;pixelsize=11;2
+font-2 = Fira Code:style=Regular;pixelsize=07;2
+height = 24
+line-size = 2
+modules-left = icon i3
+#modules-center = title
+modules-right = redshift network eww datetime
+padding = 2
+module-margin = 2
+
+[bar/openbox]
+monitor = "DP-3"
+
+[bar/crt-main]
+monitor = "DP-4"
+background = #88000000
+foreground = #FFFFFF
+font-0 = Helvetica Neue:style=Regular:pixelsize=11;2
+font-1 = font\-mfizz:style=mfizz;pixelsize=11;2
+height = 24
+line-size = 2
+modules-left = icon i3
+modules-right = datetime
+padding = 2
+module-margin = 2
+
+[bar/crt]
+monitor = "DP-4"
+background = #88000000
+foreground = #FFFFFF
+font-0 = Helvetica Neue:style=Regular:pixelsize=11;2
+height = 24
+line-size = 2
+modules-left = i3
+modules-right = datetime
+padding = 2
+module-margin = 2
+
+[module/icon]
+label-active-font = 1
+type = custom/text
+content = ""
+#content = ""
+click-left = exec ~/.script/syscontext.py &
+
+[module/i3]
+type = internal/i3
+label-focused-underline = #FFFFFF
+label-urgent-underline = #FFAA00
+label-visible-underline = #888888
+label-urgent-foreground = #FFAA00
+strip-wsnumber = true
+label-mode-padding = 1
+label-focused = %index%
+label-visible = %index%
+label-unfocused = %index%
+label-urgent = %index%
+label-focused-padding = 1
+label-visible-padding = 1
+label-unfocused-padding = 1
+label-urgent-padding = 1
+enable-scroll = false
+reverse-scroll = false
+pin-workspaces = true
+
+[module/battery]
+label-active-font = 1
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+format-charging = <label-charging><ramp-capacity>
+format-discharging = <label-discharging><ramp-capacity>
+ramp-capacity-0 = ""
+ramp-capacity-1 = ""
+ramp-capacity-2 = ""
+ramp-capacity-3 = ""
+ramp-capacity-4 = ""
+label-charging = "%percentage%% "
+label-discharging = "%percentage%% "
+
+[module/network]
+label-active-font = 1
+type = internal/network
+interface = wlan0
+interval = 10.0
+format-disconnected = " "
+format-connected = " "
+
+[module/bluetooth]
+label-active-font = 2
+type = custom/text
+content = ""
+click-left = exec blueman-manager
+
+[module/redshift]
+type = custom/script
+exec = ~/.config/polybar/script/redshift.sh
+label = "%output% "
+format = <label>
+
+[module/datetime]
+type = internal/date
+date = %a %b %d %I:%M %p
+
+[module/eww]
+label-active-font = 1
+type = custom/text
+content = "﬿"
+click-left = exec ~/.config/eww/launch_eww &
+
+[module/login]
+type = custom/script
+exec = echo $(whoami)@$(hostname)
+label = %output%
+format = %{T3}<label>
+format-padding = 2
+
+#	Thanks for your spotify status script,
+#	github.com/kaanf
+[module/spotify]
+type = custom/script
+exec = ~/.config/polybar/script/spotify_status.py -q -f "{artist}: {song}"
+label = " %{F-}%output%"
+format-underline = #1DB954
+format-prefix = "%{F#1DB954} "
+tail = true
+interval = 1s
+
+[module/title]
+type = internal/xwindow
+format-underline = #fff
+format-padding = 2

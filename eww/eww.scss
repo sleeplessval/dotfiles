@@ -1,0 +1,101 @@
+/* Global */
+* {
+	all: unset;
+	font-family: sans-serif;
+	font-family: Helvetica Neue;
+	opacity: 1;
+}
+
+
+.bg {
+	//background-image: url("~/.background/Mojave-Night.jpg");
+	background-color: #000;//#161d2f;
+	opacity: 0;
+}
+
+.genwin {
+	border-radius: 16px;
+	background-color: #161d2f;
+	border: 5px solid #fff;
+}
+
+/* Profile Settings */
+.face {
+	background-size: 200px;
+	min-height: 200px;
+	min-width: 200px;
+	margin: 65px 0px 0px 0px;
+	border-radius: 100%;
+	border: 5px solid #fff;
+}
+
+//.face:hover {
+//	border-radius: 25%;
+//}
+
+.login {
+	font-family: monospace;
+	font-family: Fira Code;
+	font-weight: bold;
+	font-size: 30px;
+	color: #fff;
+	background-color: #3d4558;
+	border-radius: 5px;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+/* System Settings */
+.cpu_bar, .ram_bar, scale trough {
+	all: unset;
+	background-color: #3d4558;
+	border-radius: 16px;
+	min-height: 28px;
+	min-width: 240px;
+}
+
+.cpu_bar label, .ram_bar label, .disk_bar label{
+	font-family: monospace;
+}
+
+.cpu_bar, .ram_bar, .disk_bar, scale trough highlight {
+	all: unset;
+	border-radius: 16px;
+}
+
+.cpu_bar scale trough highlight {
+	background-color: #A04A19;//#5A2123;
+}
+
+.ram_bar scale trough highlight {
+	background-color: #A04A19;
+}
+
+/* Clock Settings */
+.time_hour, .time_min {
+	color: #ffffff;
+	font-size: 70px;
+	font-weight: bold;
+}
+
+.time_hour {
+	margin: 20px 0px 0px 25px;
+}
+
+.time_min {
+	margin: 0px 0px 10px 0px;
+}
+
+.time_ampm {
+	color: #ffffff;
+	font-size: 40px;
+	font-weight: bold;
+	margin: 20px 0px 0px 0px;
+}
+
+.time_day {
+	color: #ffffff;
+	font-size: 30px;
+	font-weight: normal;
+	margin: 0px 0px 0px 25px;
+}
