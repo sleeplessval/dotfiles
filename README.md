@@ -68,6 +68,8 @@ I use [Starship](https://starship.rs) for my shell prompt. I don't like emoji, t
 
 I use [Polybar](https://github.com/polybar/polybar) for my status bar. My setup is heavily inspired by MacOS's status bar, but without the menu bar.
 
+---
+
 ```plaintext
                         
   ___ _      ___      __
@@ -80,6 +82,8 @@ I use [Polybar](https://github.com/polybar/polybar) for my status bar. My setup 
 ### `eww/`
 
 I use [eww](https://github.com/elkowar/eww) for widgets. I mostly use this for time in games or other fullscreen apps, or for some system controls.
+
+---
 
 ```plaintext
     __  __                     
@@ -94,6 +98,8 @@ I use [eww](https://github.com/elkowar/eww) for widgets. I mostly use this for t
 
 I use [Hyper](https://hyper.is) as my primary terminal emulator. It has some things I really like over Alacritty, like font ligatures and a title bar, and doesn't look ugly like Tilix.
 
+---
+
 ```plaintext
                          __ 
   __  ________  ___   __/ /_
@@ -106,6 +112,8 @@ I use [Hyper](https://hyper.is) as my primary terminal emulator. It has some thi
 ### `Xresources`
 
 I use [urxvt](http://software.schmorp.de/pkg/rxvt-unicode.html) on occasion.
+
+---
 
 ```plaintext
     ____  _                          __
