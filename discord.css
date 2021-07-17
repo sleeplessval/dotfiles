@@ -1,0 +1,27 @@
+code, code.inline, span[class^='codeLine*'] {
+	font-family: Fira Code;
+}
+
+.theme-dark {
+	--background-primary:			#36393f44;
+	--background-secondary:			#2A2A2E44;
+	--background-secondary-alt:		#292B2F44;
+	--background-tertiary:			#1C1B2222;
+	--background-accent:			#f4545c44;
+
+	--background-mentioned:			#5764EB45; /*5764EB45*/
+	--background-mentioned-hover:	#5764EB12;
+	--info-warning-foreground:		#5764EBd5;
+
+	--background-message-hover:		#1C1B2222;
+	--channeltextarea-background:	#5E666833;
+}
+
+*[class^='mentioned*'] {
+	background-color:	#5764EB;
+}
+
+:root {
+	--font-code:		"Fira Code";
+}
+

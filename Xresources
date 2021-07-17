@@ -1,0 +1,58 @@
+!! Colors
+
+! Frame
+*.foreground:	#FFFFFF
+*.background:	#2A2A2E
+*.cursorColor:	#FFFFFF
+
+! Black
+*.color0:	#000000
+*.color8:	#676767
+
+! Red
+*.color1:	#C91B00
+*.color9:	#FF6D67
+
+! Green
+*.color2:	#00C200
+*.color10:	#5FF967
+
+! Yellow
+*.color3:	#C7C329
+*.color11:	#FFFA72
+
+! Blue
+*.color4:	#0225C7
+*.color12:	#6871FF
+
+! Magenta
+*.color5:	#C930C7
+*.color13:	#FF76FF
+
+! Cyan
+*.color6:	#00C5C7
+*.color14:	#68FDFE
+
+! White
+*.color7:	#C7C7C7
+*.color15:	#FFFFFF
+
+!! Appearance
+
+! Fonts
+!URxvt.font:			xft:Code New Roman:style=Regular:size=14
+!URxvt.boldFont:		xft:Code New Roman:style=Bold:size=14
+!URxvt.italicFont:		xft:Code New Roman:style=Italic:size=14
+!URxvt.boldItalicFont:	xft:Code New Roman:style=Bold Italic:size=14
+URxvt.font:				xft:Iosevka Term:style=Regular:size=14
+URxvt.boldFont:			xft:Iosevka Term:style=Bold:size=14
+URxvt.italicFont:		xft:Iosevka Term:style=Italic:size=14
+URxvt.boldItalicFont:	xft:Iosevka Term:style=Bold Italic:size=14
+
+URxvt.intensityStyles:	true
+URxvt.geometry:			90x24
+URxvt.cursorBlink:		true
+URxvt.scrollBar:		false
+URxvt.scrollBar_right:	false
+URxvt.urgentOnBell:		true
+URxvt.internalBorder:	8

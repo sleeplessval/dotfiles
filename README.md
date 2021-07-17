@@ -26,7 +26,7 @@ This repository contains most of my Linux dotfiles (or the ones I reuse most, an
               /____/     /_/            
 ```
 ### `i3_config`
-I use <a href="https://github.com/Airblader/i3">i3-gaps</a> pretty much exclusively. There's not a lot special about my i3 setup, but I've got the borders nicely colored, my tabbed/stacked titlebars are blank, and it's meant to be used with Picom.
+I use [i3-gaps](https://github.com/airblader/i3) pretty much exclusively. There's not a lot special about my i3 setup, but I've got the borders nicely colored, my tabbed/stacked titlebars are blank, and it's meant to be used with Picom.
 
 ---
 
@@ -39,7 +39,7 @@ I use <a href="https://github.com/Airblader/i3">i3-gaps</a> pretty much exclusiv
 /_/                             
 ```
 ### `picom.conf`
-I use <a href="https://github.com/ibhagwan/picom">ibhagwan's picom fork</a>, since it gives me the fewest artifacts (and has dual-kawase). I use a softer dual-kawase and a *lot* of transparency.
+I use [ibhagwan's picom fork](https://github.com/ibhagwan/picom), since it gives me the fewest artifacts (and has dual-kawase). I use a softer dual-kawase and a *lot* of transparency.
 
 ---
 
@@ -52,7 +52,7 @@ I use <a href="https://github.com/ibhagwan/picom">ibhagwan's picom fork</a>, sin
                                 /_/      
 ```
 ### `starship.toml`
-I use <a href="https://starship.rs/">Starship</a> for my shell prompt. I don't like emoji, though, so I've configured it to use mostly plain text.
+I use [Starship](https://starship.rs) for my shell prompt. I don't like emoji, though, so I've configured it to use mostly plain text.
 
 ---
 
@@ -65,3 +65,55 @@ I use <a href="https://starship.rs/">Starship</a> for my shell prompt. I don't l
 /_/            /____/                    
 ```
 ### `polybar_config`
+
+I use [Polybar](https://github.com/polybar/polybar) for my status bar. My setup is heavily inspired by MacOS's status bar, but without the menu bar.
+
+```plaintext
+                        
+  ___ _      ___      __
+ / _ \ | /| / / | /| / /
+/  __/ |/ |/ /| |/ |/ / 
+\___/|__/|__/ |__/|__/  
+                        
+```
+
+### `eww/`
+
+I use [eww](https://github.com/elkowar/eww) for widgets. I mostly use this for time in games or other fullscreen apps, or for some system controls.
+
+```plaintext
+    __  __                     
+   / / / /_  ______  ___  _____
+  / /_/ / / / / __ \/ _ \/ ___/
+ / __  / /_/ / /_/ /  __/ /    
+/_/ /_/\__, / .___/\___/_/     
+      /____/_/                 
+```
+
+### `hyper.js`
+
+I use [Hyper](https://hyper.is) as my primary terminal emulator. It has some things I really like over Alacritty, like font ligatures and a title bar, and doesn't look ugly like Tilix.
+
+```plaintext
+                         __ 
+  __  ________  ___   __/ /_
+ / / / / ___/ |/_/ | / / __/
+/ /_/ / /  _>  < | |/ / /_  
+\__,_/_/  /_/|_| |___/\__/  
+                            
+```
+
+### `Xresources`
+
+I use [urxvt](http://software.schmorp.de/pkg/rxvt-unicode.html) on occasion.
+
+```plaintext
+    ____  _                          __
+   / __ \(_)_____________  _________/ /
+  / / / / / ___/ ___/ __ \/ ___/ __  / 
+ / /_/ / (__  ) /__/ /_/ / /  / /_/ /  
+/_____/_/____/\___/\____/_/   \__,_/   
+                                       
+```
+
+I use [Discord](https://discord.com) with [DiscoCSS](https://github.com/mlvzk/discocss) for custom styling, with a frosted glass styling with the default colors.
