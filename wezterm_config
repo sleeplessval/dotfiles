@@ -1,13 +1,12 @@
 local wezterm = require 'wezterm';
 
-config = {}
-
 --  _       __           __
 -- | |     / /__  ____  / /____  _________ ___
 -- | | /| / / _ \/_  / / __/ _ \/ ___/ __ `__ \
 -- | |/ |/ /  __/ / /_/ /_/  __/ /  / / / / / /
 -- |__/|__/\___/ /___/\__/\___/_/  /_/ /_/ /_/
 --
+config = {}
 
 --     ______            __                     __   ______      __
 --    / ____/___  ____  / /_   ____ _____  ____/ /  / ____/___  / /___  _____
@@ -15,10 +14,12 @@ config = {}
 --  / __/ / /_/ / / / / /_   / /_/ / / / / /_/ /  / /___/ /_/ / / /_/ / /
 -- /_/    \____/_/ /_/\__/   \__,_/_/ /_/\__,_/   \____/\____/_/\____/_/
 --
-config.font = wezterm.font("Fira Code");
-config.font_size = 10.0;
-config.bold_brightens_ansi_colors = true;
-config.cursor_blink_rate = 1000;
+config.font = wezterm.font_with_fallback({
+	"Fira Code",
+	"FiraCode Nerd Font",
+	"monospace"
+});
+config.font_size = 11.0;
 config.harfbuzz_features = {
 	"ss07"
 }
@@ -53,8 +54,11 @@ config.colors = {
 		"#FFFFFF"
 	}
 }
+config.bold_brightens_ansi_colors = true;
+config.default_cursor_style = "BlinkingBlock";
+config.cursor_blink_rate = 800;
 config.window_background_opacity = 0.85;
-config.text_background_opacity = 0.0;
+config.text_background_opacity = 1.0;
 
 --  _       ___           __
 -- | |     / (_)___  ____/ /___ _      __
@@ -70,8 +74,11 @@ config.window_padding = {
 	left = 8,
 	right = 8
 }
-config.window_decorations = "NONE"
-config.initial_rows = 24;
+config.enable_scroll_bar = false;
+config.window_decorations = "NONE";
+config.window_close_confirmation = "NeverPrompt";
+config.scrollback_lines = 512;
+config.initial_rows = 26;
 config.initial_cols = 90;
 config.adjust_window_size_when_changing_font_size = false;
 
