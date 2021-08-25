@@ -1,0 +1,102 @@
+;;   _____            __
+;;  / ___/__  _______/ /____  ____ ___
+;;  \__ \/ / / / ___/ __/ _ \/ __ `__ \
+;; ___/ / /_/ (__  ) /_/  __/ / / / / /
+;;/____/\__, /____/\__/\___/_/ /_/ /_/
+;;     /____/
+
+;;	Variables
+
+(defpoll
+	CPU_USAGE
+	:interval "1s"
+	"~/.config/eww/scripts/cpu"
+)
+(defpoll
+	RAM_USAGE
+	:interval "1s"
+	"~/.config/eww/scripts/ram"
+)
+(defpoll
+	SSD_USAGE
+	:interval "1m"
+	"~/.config/eww/scripts/ssd"
+)
+
+;;	Widgets
+
+(defwidget
+	system []
+	(box
+		:class "genwin"
+		:vexpand false
+		:hexpand false
+		:cursor "default"
+		(box
+			:orientation "v"
+			:spacing 35
+			:halign "center"
+			:valign "center"
+			:space-evenly false
+			:vexpand false
+			:hexpand false
+			(box
+				:class "cpu_bar"
+				:orientation "h"
+				:spacing 20
+				:space-evenly true
+				:vexpand false
+				:hexpand false
+				(label
+					:text "CPU"
+					;;:text ""
+				)
+				(label :text "|")
+				(label :text "${CPU_USAGE}%")
+			)
+			(box
+				:class "ram_bar"
+				:orientation "h"
+				:spacing 20
+				:space-evenly true
+				:vexpand false
+				:hexpand false
+				(label
+					:text "RAM"
+					;;:text ""
+				)
+				(label :text "|")
+				(label :text "${RAM_USAGE}")
+			)
+			(box
+				:class "disk_bar"
+				:orientation "h"
+				:spacing 20
+				:space-evenly true
+				:vexpand false
+				:hexpand false
+				(label
+					:text "SSD"
+					;;:text ""
+				)
+				(label :text "|")
+				(label :text "${SSD_USAGE}")
+			)
+		)
+	)
+)
+
+;;	Windows
+
+(defwindow
+	system
+	:stacking "fg"
+	:focusable false
+	:geometry (geometry
+		:x 150
+		:y 605
+		:width 350
+		:height 325
+	)
+	(system)
+)

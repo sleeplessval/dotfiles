@@ -1,0 +1,90 @@
+;;   ________           __
+;;  / ____/ /___  _____/ /__
+;; / /   / / __ \/ ___/ //_/
+;;/ /___/ / /_/ / /__/ ,<
+;;\____/_/\____/\___/_/|_|
+;;
+
+;;	Variables
+(defpoll
+	HOUR
+	:interval "1m"
+	"date +\"%I\""
+)
+(defpoll
+	MINUTE
+	:interval "1s"
+	"date +\"%M\""
+)
+(defpoll
+	MERIDIEM
+	:interval "1m"
+	"date +\"%p\""
+)
+(defpoll
+	DAY
+	:interval "2m"
+	"date +\"%a\""
+)
+
+;;	Widgets
+(defwidget
+	clock []
+	(box
+		:class "genwin"
+		:orientation "h"
+		:space-evenly false
+		:vexpand false
+		:hexpand false
+		:cursor "default"
+		(label
+			:class "time_hour"
+			:valign "start"
+			:wrap true
+			:limit-width 25
+			:text "${HOUR}"
+		)
+		(label
+			:class "time_min"
+			:valign "end"
+			:wrap true
+			:limit-width 25
+			:text "${MINUTE}"
+		)
+		(box
+			:orientation "v"
+			:spacing 25
+			:space-evenly false
+			:vexpand false
+			:hexpand false
+			(label
+				:class "time_meridiem"
+				:halign "end"
+				:wrap true
+				:limit-width 25
+				:text "${MERIDIEM}"
+			)
+			(label
+				:class "time_day"
+				:halign "end"
+				:wrap true
+				:limit-width 25
+				:text "${DAY}"
+			)
+		)
+	)
+)
+
+;;	Windows
+(defwindow
+	clock
+	:stacking "fg"
+	:focusable false
+	:geometry (geometry
+		:x 515
+		:y 150
+		:width 350
+		:height 155
+	)
+	(clock)
+)

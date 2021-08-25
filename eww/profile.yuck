@@ -1,0 +1,59 @@
+;;    ____             _____ __
+;;   / __ \_________  / __(_) /__
+;;  / /_/ / ___/ __ \/ /_/ / / _ \
+;; / ____/ /  / /_/ / __/ / /  __/
+;;/_/   /_/   \____/_/ /_/_/\___/
+;;
+
+;;	Variables
+
+(defpoll
+	HOSTNAME
+	:interval "24h"
+	"hostname"
+)
+(defpoll
+	USERNAME
+	:interval "24h"
+	"whoami"
+)
+
+;;	Widget
+
+(defwidget
+	user []
+	(box
+		:class "genwin"
+		:orientation "v"
+		:spacing 35
+		:space-evenly false
+		:vexpand false
+		:hexpand false
+		(box
+			:class "face"
+			:halign "center"
+		)
+		(label
+			:class "login"
+			:halign "center"
+			:wrap true
+			:limit-width 15
+			:text "${USERNAME}@${HOSTNAME}"
+		)
+	)
+)
+
+;;	Window
+
+(defwindow
+	profile
+	:stacking "fg"
+	:focusable false
+	:geometry (geometry
+		:x 150
+		:y 150
+		:width 350
+		:height 440
+	)
+	(user)
+)

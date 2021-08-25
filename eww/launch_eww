@@ -4,5 +4,5 @@ if eww state | grep -q "USERNAME: val"
 then
 	eww close-all
 else
-	eww open-many background profile system clock
+	eww open-many background profile system clock logout power reboot terminal
 fi
