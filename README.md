@@ -86,17 +86,17 @@ I use [eww](https://github.com/elkowar/eww) for widgets. I mostly use this for t
 ---
 
 ```plaintext
-    __  __                     
-   / / / /_  ______  ___  _____
-  / /_/ / / / / __ \/ _ \/ ___/
- / __  / /_/ / /_/ /  __/ /    
-/_/ /_/\__, / .___/\___/_/     
-      /____/_/                 
+                      __                    
+ _      _____  ____  / /____  _________ ___ 
+| | /| / / _ \/_  / / __/ _ \/ ___/ __ `__ \
+| |/ |/ /  __/ / /_/ /_/  __/ /  / / / / / /
+|__/|__/\___/ /___/\__/\___/_/  /_/ /_/ /_/ 
+                                                   
 ```
 
-### `hyper.js`
+### `wezterm_config`
 
-I use [Hyper](https://hyper.is) as my primary terminal emulator. It has some things I really like over Alacritty, like font ligatures and a title bar, and doesn't look ugly like Tilix.
+I use [wezterm](https://wezfurlong.org/wezterm/) as my terminal emulator. It's feature-rich, written in Rust, and is super customizable.
 
 ---
 
