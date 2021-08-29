@@ -16,3 +16,6 @@ eval "$(starship init bash)"
 eval "$(thefuck --alias)"
 
 source /usr/lib/goto/goto.sh
+
+export PS1="$(starship prompt)"
+
