@@ -1,5 +1,40 @@
+#    _____ __                  __    _     
+#   / ___// /_____ ___________/ /_  (_)___ 
+#   \__ \/ __/ __ `/ ___/ ___/ __ \/ / __ \
+#  ___/ / /_/ /_/ / /  (__  ) / / / / /_/ /
+# /____/\__/\__,_/_/  /____/_/ /_/_/ .___/ 
+#                                 /_/      
+
+[directory]
+read_only = " "
+
+[jobs]
+symbol_threshold = 2
+number_threshold = 3
+symbol = "✦ "
+format = "[$symbol$number]($style)"
+
 [package]
 symbol = ""
+
+[shell]
+disabled = true
+bash_indicator = ""
+zsh_indicator = ""
+format = "$indicator"
+
+[shlvl]
+disabled = false
+threshold = 3
+symbol = "ﰬ"
+format = "[$symbol]($style) "
+
+#     __                                                 
+#    / /   ____ _____  ____ ___  ______ _____ ____  _____
+#   / /   / __ `/ __ \/ __ `/ / / / __ `/ __ `/ _ \/ ___/
+#  / /___/ /_/ / / / / /_/ / /_/ / /_/ / /_/ /  __(__  ) 
+# /_____/\__,_/_/ /_/\__, /\__,_/\__,_/\__, /\___/____/  
+#                   /____/            /____/             
 
 [cmake]
 #symbol = "C "
@@ -7,6 +42,7 @@ symbol = " "
 
 [dotnet]
 format = "[$symbol($version )]($style)"
+symbol = "•NET "
 #symbol = " "
 
 [golang]
@@ -18,12 +54,17 @@ symbol = "Java "
 #symbol = " "
 
 [nodejs]
-symbol = "NodeJS "
+format = "via [$symbol]($style)"
+#symbol = "NodeJS "
+symbol = "JS "
 #symbol = " "
 
 [lua]
 symbol = "Lua "
 #symbol = " "
+
+[perl]
+symbol = "Perl "
 
 [python]
 symbol = "Py "
@@ -38,15 +79,3 @@ symbol = "Ruby "
 [rust]
 symbol = "Rs "
 #symbol = " "
-
-[shell]
-disabled = true
-bash_indicator = ""
-format = "$indicator"
-
-[shlvl]
-disabled = false
-threshold = 3
-symbol = "ﰬ"
-format = "[$symbol]($style) "
-
