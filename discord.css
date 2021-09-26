@@ -7,19 +7,22 @@ code, code.inline, span[class^='codeLine*'] {
 	--background-secondary:			#2A2A2E44;
 	--background-secondary-alt:		#292B2F44;
 	--background-tertiary:			#1C1B2222;
-	--background-accent:			#f4545c44;
+	--background-accent:			#5454fc44;
 
 	--background-mentioned:			#5764EB45; /*5764EB45*/
 	--background-mentioned-hover:	#5764EB12;
 	--info-warning-foreground:		#5764EBd5;
 
 	--background-message-hover:		#1C1B2222;
-	--channeltextarea-background:	#5E666833;
+	--channeltextarea-background:	#2F343C; /*5E666833*/
+
+	--scrollbar-auto-thumb:			#505460;
 }
 
+/* Mentions
 *[class^='mentioned*'] {
 	background-color:	#5764EB;
-}
+}*/
 
 :root {
 	--font-code:		"Fira Code";
