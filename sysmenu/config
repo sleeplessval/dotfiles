@@ -1,0 +1,95 @@
+[global]
+background	=	#2A2A2E
+foreground	=	#FFFFFF
+highlight	=	#3D4558
+padding_y	=	8
+padding_x	=	8
+
+[font:fira]
+family = Fira Code
+size = 11
+
+[menu:cal]
+items = label:cal
+x = 1732
+y = 24
+
+[menu:lan]
+items = label:ssid label:myip button:pingtest
+x = 1616
+y = 24
+
+[menu:player]
+items = label:player
+x = 1632
+y = 24
+
+[menu:redshift]
+items = button:redshift label:rs_period label:rs_temp
+x = 1640
+y = 24
+
+[menu:system]
+items = label:user button:term button:logout button:reboot button:poweroff
+x = 5
+y = 24
+
+[button:logout]
+text = Logout
+command = i3-msg exit
+
+[button:pingtest]
+text = Ping Test
+command = ~/.script/inet/is-back
+condition = $(if ! pidof ping; then echo true; fi)
+
+[button:poweroff]
+text = Poweroff
+command = poweroff
+
+[button:reboot]
+text = Reboot
+command = reboot
+
+[button:redshift]
+text = Redshift
+command = ~/.config/sysmenu/script/redshift_tog.sh
+
+[button:term]
+text = Open Terminal
+command = wezterm
+
+[label:cal]
+font = fira
+text = $(cal)
+eval = true
+strip = right
+
+[label:myip]
+font = fira
+text = $(ip addr | grep 192. | awk '{ print substr($2, 0, length($2) - 3 ) }')
+eval = true
+
+[label:player]
+text = $(playerctl metadata | head -n 1 | awk '{ print $1 }')
+eval = true
+
+[label:rs_period]:
+#text = $(redshift -p 2> /dev/null | grep "Period" | awk '{ print $2 }')
+text = $(~/.config/sysmenu/script/redshift_period.sh)
+eval = true
+
+[label:rs_temp]
+#text = $(redshift -p 2> /dev/null | grep "temperature" | awk '{ print $3 }')
+text = $(~/.config/sysmenu/script/redshift_temp.sh)
+eval = true
+
+[label:ssid]
+font = fira
+text = $(iwctl station wlan0 show | grep Connected | awk '{ print $3 }')
+eval = true
+
+[label:user]
+font = fira
+text = $(whoami)@$(hostname)
+eval = true
