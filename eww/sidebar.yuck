@@ -1,0 +1,181 @@
+;;    _____ _     __     __
+;;   / ___/(_)___/ /__  / /_  ____ ______
+;;   \__ \/ / __  / _ \/ __ \/ __ `/ ___/
+;;  ___/ / / /_/ /  __/ /_/ / /_/ / /
+;; /____/_/\__,_/\___/_.___/\__,_/_/
+;;
+(defpoll HOSTNAME :interval "24h" "hostname")
+(defpoll USERNAME :interval "24h" "whoami")
+
+(defpoll TIME_TOP
+	:interval "2s"
+	"date +\"%I:%M %p\""
+)
+(defpoll TIME_BOTTOM
+	:interval "2s"
+	"date +\"%B %d\""
+)
+
+(defpoll CPU_USAGE
+	:interval "1s"
+	"~/.config/eww/scripts/cpu"
+)
+(defpoll RAM_USAGE
+	:interval "1s"
+	"~/.config/eww/scripts/ram"
+)
+(defpoll SSD_USAGE
+	:interval "30s"
+	"~/.config/eww/scripts/ssd"
+)
+
+(defwidget profile []
+	(box
+		:class "sidebar-sub"
+		:orientation "v"
+		:space-evenly false
+		:spacing 8
+		:hexpand false
+		:vexpand false
+		(box
+			:class "face"
+			:valign "start"
+		)
+		(label
+			:class "login"
+			:halign "center"
+			:valign "start"
+			:limit-width 15
+			:text "${USERNAME}@${HOSTNAME}"
+		)
+	)
+)
+
+(defwidget clock []
+	(box
+		:class "sidebar-sub"
+		:orientation "v"
+		:space-evenly false
+		:spacing 8
+		(label
+			:class "time-top"
+			:text "${TIME_TOP}"
+			)
+		(label
+			:class "time-bottom"
+			:text "${TIME_BOTTOM}"
+		)
+	)
+)
+
+(defwidget system []
+	(box
+		:class "sidebar-sub"
+		:orientation "h"
+		:space-evenly true
+		:spacing 8
+		:hexpand false
+		:vexpand false
+		(box
+			:class "sys-info"
+			:orientation "v"
+			:space-evenly true
+			:hexpand false
+			(label :text "CPU")
+			(label :text "RAM")
+			(label :text "SSD")
+		)
+		(box
+			:class "sys-info"
+			:orientation "v"
+			:space-evenly true
+			:hexpand false
+			(label :text "${CPU_USAGE}%")
+			(label :text "${RAM_USAGE}")
+			(label :text "${SSD_USAGE}")
+		)
+	)
+)
+
+(defwidget status []
+	(box
+		:class "sidebar-sub status"
+		:orientation "h"
+		:space-evenly true
+		(label
+			:class "icon"
+			:text {KEYBOARD == "" ? "" : KEYBOARD}
+		)
+		(label
+			:class "icon"
+			:text "${REDSHIFT}"
+		)
+		(label
+			:class "icon"
+			:text "${LAN}"
+		)
+	)
+)
+
+(defwidget actions []
+	(box
+		:class "sidebar-sub actions"
+		:orientation "v"
+		:space-evenly true
+		(box
+			:orientation "h"
+			:space-evenly true
+			(button
+				:class "icon"
+				:onclick "poweroff"
+				:tooltip "shutdown"
+				"⏼"
+			)
+			(button
+				:class "icon"
+				:onclick "reboot"
+				:tooltip "reboot"
+				""
+			)
+			(button
+				:class "icon"
+				:onclick "slock"
+				:tooltip "lock"
+				""
+			)
+			(button
+				:class "icon big"
+				:onclick "i3-msg exit"
+				:tooltip "logout"
+				"﫻"
+			)
+		)
+	)
+)
+
+(defwidget sidebar []
+	(box
+		:class "bg"
+		:orientation "v"
+		:space-evenly false
+		:spacing 8
+		:hexpand false
+		:vexpand false
+		(profile)
+		(clock)
+		(system)
+		(status)
+	)
+)
+
+(defwindow sidebar
+	:geometry (geometry
+		:x "1648"
+		:y "42px"
+		:width "256px"
+	)
+	:stacking "fg"
+	:windowtype "normal"
+	:wm-ignore true
+	(sidebar)
+)

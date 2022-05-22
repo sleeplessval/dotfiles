@@ -1,60 +1,184 @@
-;;    ______Valerie's      Super ______  Amazing   _____
-;;   / ____/      ___      __   / ____/___  ____  / __(_)___ _
-;;  / __/ | | /| / / | /| / /  / /   / __ \/ __ \/ /_/ / __ `/
-;; / /___ | |/ |/ /| |/ |/ /  / /___/ /_/ / / / / __/ / /_/ /
-;;/_____/ |__/|__/ |__/|__/   \____/\____/_/ /_/_/ /_/\__, /
-;;                                                   /____/
+;;    ______ Valerie' Amazing    ____
+;;   / ____/      ___      __   / __ )____ ______
+;;  / __/ | | /| / / | /| / /  / __  / __ `/ ___/
+;; / /___ | |/ |/ /| |/ |/ /  / /_/ / /_/ / /
+;;/_____/ |__/|__/ |__/|__/  /_____/\__,_/_/
+;;
 
-;;	Includes
-(include	"./clock.yuck")
-(include	"./cluster.yuck")
-(include	"./profile.yuck")
-(include	"./system.yuck")
-(include	"./wm.yuck")
+(include "./sidebar.yuck")
+(include "./calendar.yuck")
 
-;;	Widgets
-(defwidget
-	bg []
+;;	Variables
+(defvar sidebar_rev false)
+(defvar WM_MODE "default")
+
+(defpoll
+	DATETIME
+	:interval "2s"
+	"date +\"%a %b %d %I:%M %p\""
+)
+(defpoll REDSHIFT
+	:interval "2m"
+	"/home/val/.config/eww/scripts/redshift.sh"
+)
+(defpoll KEYBOARD
+	:interval "20ms"
+	"/home/val/.config/eww/scripts/kb.sh"
+)
+(defpoll LAN
+	:interval "2s"
+	"/home/val/.config/eww/scripts/lan.sh"
+)
+(defpoll PLAYING
+	:interval "50ms"
+	"playerctl status"
+)
+
+(deflisten i3-workspace "/home/val/.config/eww/bin/i3-ws")
+
+;;	Left Section
+(defwidget distro []
 	(box
-		:class "bg"
-		:cursor "default"
-		:onclick "~/.config/eww/launch_eww"
+		:orientation "h"
+		:space-evenly false
+		:halign "start"
+		(button
+			:class "icon"
+			:onclick "exec ~/.script/sysmenu.py system &"
+			""
+		)
 	)
 )
-(defwidget
-	x []
-	(button
-		:class "x"
-		:cursor "pointer"
-		:onclick "~/.config/eww/launch_eww"
-		:tooltip "close"
-		:text ""
+(defwidget workspace []
+	(box
+		:space-evenly false
+		(revealer
+			:reveal { WM_MODE != "default" }
+			:transition "slideleft"
+			(label
+				:text WM_MODE
+				:style "margin-left: 8px;"
+			)
+		)
+		(literal :content i3-workspace)
+	)
+)
+
+(defwidget left []
+	(box
+		:orientation "h"
+		:space-evenly false
+		:halign "start"
+		:class "left_modules"
+		(distro)
+		(workspace)
+	)
+)
+
+;;	Right Section
+(defwidget keyboard []
+	(box
+		:class "module"
+		:space-evenly false
+		:orientation "h"
+		:spacing "3"
+		(revealer
+			:reveal {KEYBOARD != ""}
+			:transition "slideleft"
+			:duration "350ms"
+			(button
+				:class "icon"
+				KEYBOARD
+			)
+		)
+	)
+)
+(defwidget redshift []
+	(box
+		:class "module"
+		:space-evenly false
+		:orientation "h"
+		:spacing "3"
+		(button
+			:class "icon"
+			:onclick "exec ~/.script/sysmenu.py redshift &"
+			REDSHIFT
+		)
+	)
+)
+(defwidget wifi []
+	(box
+		:class "module"
+		:space-evenly false
+		:orientation "h"
+		:spacing "3"
+		(button
+			:class "icon"
+			:onclick "exec ~/.script/sysmenu.py lan &"
+			LAN
+		)
+	)
+)
+(defwidget sidebar_toggle []
+	(box
+		:class "module"
+		:space-evenly false
+		:orientation "h"
+		:spacing "3"
+		(button
+			:class "icon-sm"
+			:onclick "/home/val/.config/eww/scripts/toggle_sidebar.sh"
+			{sidebar_rev ? "" : "﬿"}
+		)
+	)
+)
+(defwidget datetime []
+	(box
+		:class "module"
+		:space-evenly false
+		:orientation "h"
+		:spacing 5
+		(button
+			:onclick "/home/val/.config/eww/scripts/toggle_calendar.sh"
+			DATETIME
+		)
+	)
+)
+
+(defwidget right []
+	(box
+		:orientation "h"
+		:space-evenly false
+		:spacing 5
+		:halign "end"
+		:class "right_modules"
+		(keyboard)
+		(redshift)
+		(wifi)
+		(sidebar_toggle)
+		(datetime)
+	)
+)
+
+(defwidget bar []
+	(box
+		:class "bar"
+		:orientation "h"
+		(left)
+		(right)
 	)
 )
 
 ;;	Windows
-(defwindow
-	background
-	:stacking "fg"
-	:focusable true
-	:wm-ignore true
+(defwindow bar
 	:geometry (geometry
-		:x 0
-		:y 0
-		;; 24
-		:width "1920px"
-		:height "1080px"
-		;; 1056px
+		:x "0px"
+		:y "0px"
+		:width "100%"
+		:height "24px"
+		:anchor "top center"
 	)
-	(bg)
-)
-(defwindow
-	x
 	:stacking "fg"
-	:focusable false
-	:geometry (geometry
-		:x 12
-		:y 12
-	)
-	(x)
+	:windowtype "dock"
+	(bar)
 )

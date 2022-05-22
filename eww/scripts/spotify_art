@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+TRACK=$(playerctl --player=spotify metadata | grep trackid | awk '{print $3}')
+RESOURCE=$(curl -sX GET "https://open.spotify.com/oembed?url=$TRACK" | jq '.thumbnail_url' | awk '{print substr($1, 2, length($1)-2)}')
+curl -sX GET "$RESOURCE" --output "/home/val/.config/eww/scripts/tmp/art"
+return $RESOURCE

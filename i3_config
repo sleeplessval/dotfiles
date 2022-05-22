@@ -21,16 +21,35 @@ set $ws9 "9"
 set $ws10 "10"
 
 # Appearance
+#default_border pixel 2
 for_window [class="^.*"] border pixel 2
 gaps inner 15
 
 font pango:DejaVu Sans Mono 2
 for_window [class=".*"] title_format "<span alpha='0'></span>"
 
-client.focused          #323232 #7575ff #ffffff #161d2f #5e6668
-client.focused_inactive #323232 #4545ff #ffffff #161d2f #323232
-client.unfocused        #323232 #161d2f #ffffff #161d2f #323232
-client.urgent           #323232 #ff7b19 #ffffff #900000 #d4d4d4
+#   ______      __
+#  / ____/___  / /___  __________
+# / /   / __ \/ / __ \/ ___/ ___/
+#/ /___/ /_/ / / /_/ / /  (__  )
+#\____/\____/_/\____/_/  /____/
+#
+#	class				title	backgr.	text	indic.	border
+#				BASIC
+#client.focused			#323232 #7575ff #ffffff #161d2f #5e6668
+#client.focused_inactive#323232 #4545ff #ffffff #161d2f #323232
+#client.unfocused		#323232 #161d2f #ffffff #161d2f #323232
+#client.urgent			#323232 #ff7b19 #ffffff #900000 #d4d4d4
+#				NORDIC
+#client.focused			#323232 #81A1C1 #FFFFFF #2E3440 #E5E9F0
+#client.focused_inactive#323232 #5E81AC #FFFFFF #2E3440	#D8DEE9
+#client.unfocused		#323232 #2E3449 #FFFFFF #2E3440 #D8DEE9
+#client.urgent			#323232 #D08770 #FFFFFF #BF616A #D8DEE9
+#				HYBRID
+client.focused			#323232 #81A1C1 #FFFFFF #161D2F #6E7678
+client.focused_inactive	#323232 #5E81AC #FFFFFF #161D2F #323232
+client.unfocused		#323232 #2E3449 #FFFFFF #161D2F #323232
+client.urgent			#323232 #D08770 #FFFFFF #161D2F #424242
 
 #    __ __           __    _           __
 #   / //_/__  __  __/ /_  (_)___  ____/ /____
@@ -44,7 +63,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+c reload
 
 # WM Interacts
-bindsym $mod+Return exec hyper
+bindsym $mod+Return exec wezterm
 bindsym $mod+Shift+q kill
 bindsym $mod+space exec rofi -show run
 
@@ -80,6 +99,7 @@ bindsym $mod+BackSpace workspace back_and_forth
 
 bindsym $mod+grave scratchpad show
 bindsym $mod+Shift+grave floating enable, move scratchpad
+bindsym $mod+Tab+grave floating enable, move scratchpad
 
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -105,10 +125,25 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Resize Mode
 mode "resize" {
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym Left resize shrink width 4 px or 2 ppt
+        bindsym Down resize grow height 4 px or 2 ppt
+        bindsym Up resize shrink height 4 px or 2 ppt
+        bindsym Right resize grow width 4 px or 2 ppt
+
+		bindsym Ctrl+Left resize shrink width 2 px or 1 ppt
+        bindsym Ctrl+Down resize grow height 2 px or 1 ppt
+        bindsym Ctrl+Up resize shrink height 2 px or 1 ppt
+        bindsym Ctrl+Right resize grow width 2 px or 1 ppt
+
+		bindsym Shift+Left resize shrink width 8 px or 4 ppt
+        bindsym Shift+Down resize grow height 8 px or 4 ppt
+        bindsym Shift+Up resize shrink height 8 px or 4 ppt
+        bindsym Shift+Right resize grow width 8 px or 4 ppt
+
+		bindsym Ctrl+Shift+Left resize shrink width 16 px or 8 ppt
+        bindsym Ctrl+Shift+Down resize grow height 16 px or 8 ppt
+        bindsym Ctrl+Shift+Up resize shrink height 16 px or 8 ppt
+        bindsym Ctrl+Shift+Right resize grow width 16 px or 8 ppt
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -121,11 +156,15 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Escape exec dunstctl close
 bindsym Shift+$mod+Escape exec dunstctl close-all
 
-bindsym Menu exec /home/val/.config/eww/launch_eww
+bindsym Menu exec /home/val/.config/eww/menu_script
 
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl --player=spotify play-pause
+bindsym XF86AudioNext exec playerctl --player=spotify next
+bindsym XF86AudioPrev exec playerctl --player=spotify previous
+
+bindsym Shift+XF86AudioPlay exec playerctl play-pause
+bindsym Shift+XF86AudioNext exec playerctl next
+bindsym Shift+XF86AudioPrev exec playerctl previous
 
 bindsym $mod+Shift+s exec scrot ~/Images/scrot/%b%d_%H-%M-%S.png
 
@@ -137,15 +176,18 @@ bindsym $mod+Shift+s exec scrot ~/Images/scrot/%b%d_%H-%M-%S.png
 #                             /_/
 exec_always feh --bg-scale ~/.background
 exec_always xrdb ~/.Xresources
-exec ~/.bin/picom-ibhagwan/picom
+
+exec picom
 exec redshift &
 exec dunst
-exec polybar top
-exec unclutter
+# exec polybar top
 exec eww daemon
+exec eww open bar
+exec unclutter
+exec --no-startup-id fcitx5 -d
 
 exec ~/.script/nosleep.sh
-exec ~/.script/trackball_speed.sh 0.2 1
+exec_always ~/.script/hid/trackball_speed.sh 0.1 1
 
 # _       ___           __                 ____
 #| |     / (_)___  ____/ /___ _      __   / __ \_________  ____  _____
@@ -154,10 +196,19 @@ exec ~/.script/trackball_speed.sh 0.2 1
 #|__/|__/_/_/ /_/\__,_/\____/|__/|__/  /_/   /_/   \____/ .___/____/
 #                                                      /_/
 
+for_window [class="Aseprite"] border pixel 0
+for_window [title="Blanket" class="python3"] floating enable
+for_window [class="Blueman-manager"] floating enable
 for_window [class="eww"] floating enable
 for_window [class="eww-background"] border pixel 0
+for_window [class="Gnome-calendar"] floating enable
+#for_window [class="i3-frame"] border pixel 1
 for_window [class="Org.gnome.Nautilus"] floating enable
 for_window [class="Pick-colour-picker"] floating enable
 for_window [class="rofi"] border pixel 0
 for_window [class="Tk" title="sysmenu"] floating enable
+for_window [class="Steam" title="Friends List"] floating enable
+for_window [class="org.wezfurlong.wezterm"] border pixel 2
 
+no_focus [window_role="pop-up"]
+focus_on_window_activation none

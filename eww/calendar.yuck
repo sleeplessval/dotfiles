@@ -1,0 +1,38 @@
+;;    ______      __               __ 
+;;   / ____/___ _/ /__  ____  ____/ /___ ______
+;;  / /   / __ `/ / _ \/ __ \/ __  / __ `/ ___/
+;; / /___/ /_/ / /  __/ / / / /_/ / /_/ / /
+;; \____/\__,_/_/\___/_/ /_/\__,_/\__,_/_/
+;;
+(defpoll calendar_day
+	:interval "2m"
+	"date '+%d'"
+)
+(defpoll calendar_year
+	:interval "2m"
+	"date '+%Y'"
+)
+
+(defwidget cal []
+	(box
+		:class "cal-bg"
+		:orientation "v"
+		(calendar
+			:class "calendar"
+			:day calendar_day
+			:year calendar_year
+		)	
+	)
+)
+
+(defwindow calendar
+	:geometry (geometry
+		:x "-8px"
+		:y "40px"
+		:anchor "top right"
+		:width "270px"
+		:height "60px"
+	)
+	:windowtype "normal"
+	(cal)
+)

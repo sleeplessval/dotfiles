@@ -1,4 +1,5 @@
 local wezterm = require 'wezterm';
+local colorscheme = require 'colors'
 
 --  _       __           __
 -- | |     / /__  ____  / /____  _________ ___
@@ -6,7 +7,7 @@ local wezterm = require 'wezterm';
 -- | |/ |/ /  __/ / /_/ /_/  __/ /  / / / / / /
 -- |__/|__/\___/ /___/\__/\___/_/  /_/ /_/ /_/
 --
-config = {}
+config = {};
 
 --     ______            __                     __   ______      __
 --    / ____/___  ____  / /_   ____ _____  ____/ /  / ____/___  / /___  _____
@@ -23,6 +24,7 @@ config.font_size = 11.0;
 config.harfbuzz_features = {
 	"ss07"
 }
+
 config.colors = {
 	foreground		=	"#FFFFFF",
 	background		=	"#000000",
@@ -33,26 +35,8 @@ config.colors = {
 	selection_fg	=	"#C7C7C7",
 	selection_bg	=	"#454545",
 
-	ansi	= {
-		"#000000",
-		"#C91B00",
-		"#00C200",
-		"#C7C329",
-		"#0225C7",
-		"#C930C7",
-		"#00C5C7",
-		"#C7C7C7"
-	},
-	brights	= {
-		"#676767",
-		"#FF6D67",
-		"#5FF967",
-		"#FFFA72",
-		"#6871FF",
-		"#FF76FF",
-		"#68FDFE",
-		"#FFFFFF"
-	}
+	ansi			=	valerie.ansi,
+	brights			=	valerie.brights
 }
 config.bold_brightens_ansi_colors = true;
 config.default_cursor_style = "BlinkingBlock";
@@ -66,7 +50,9 @@ config.text_background_opacity = 1.0;
 -- | |/ |/ / / / / / /_/ / /_/ / |/ |/ /
 -- |__/|__/_/_/ /_/\__,_/\____/|__/|__/
 --
-config.enable_tab_bar = false;
+config.enable_tab_bar = true;
+config.hide_tab_bar_if_only_one_tab = true;
+config.tab_bar_at_bottom = true;
 config.window_padding = {
 	top = 12,
 	bottom = 12,

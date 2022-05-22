@@ -6,6 +6,8 @@
 "
 syntax on
 filetype plugin on
+let g:onedark_termcolors = 256
+" colorscheme onedark
 colorscheme pablo
 
 set autoindent
@@ -21,5 +23,7 @@ set shiftwidth=4
 "           /____/                            
 
 "	Ctrl+Tab:		Toggle tab markers
-map <C-Tab> :set list! lcs=tab:\¦\ <CR>
+map <C-`> :set list! lcs=tab:\¦\ <CR>
+"	Ctrl+L:			Toggle line numbers
+map <C-l> :set number! <CR>
 

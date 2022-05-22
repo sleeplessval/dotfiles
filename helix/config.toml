@@ -1,0 +1,11 @@
+theme = "val-onedark"
+
+[editor]
+auto-pairs = false
+
+[editor.file-picker]
+hidden = false
+
+[editor.lsp]
+display-messages = true
+

@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+/home/val/.config/eww/scripts/spotify_art&
+echo ""

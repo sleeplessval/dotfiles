@@ -1,1 +1,0 @@
-/home/val/Repos/sysmenu/sysmenu.py

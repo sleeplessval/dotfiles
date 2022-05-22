@@ -50,7 +50,7 @@ URxvt.italicFont:		xft:Iosevka Term:style=Italic:size=14
 URxvt.boldItalicFont:	xft:Iosevka Term:style=Bold Italic:size=14
 
 URxvt.intensityStyles:	true
-URxvt.geometry:			90x24
+URxvt.geometry:			90x26
 URxvt.cursorBlink:		true
 URxvt.scrollBar:		false
 URxvt.scrollBar_right:	false

@@ -1,130 +1,117 @@
 /* Global */
 * {
 	all: unset;
-	font-family: sans-serif;
-	font-family: Helvetica Neue;
+	font-family: "Helvetica Neue", sans-serif;
 	opacity: 1;
 }
 
+.bar {
+	background-color: rgba(0, 0, 0, 0.53);
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.module {
+	margin: 0px 4px;
+}
+
+.workspace {
+	margin-left: 12px;
+	margin-top: 8px;
+}
+
+.ws-btn {
+	padding: 0px 3px;
+	margin-bottom: 2px;
+}
+.focused {
+	border-bottom: 2px solid white;
+	margin-bottom: 0px;
+}
+.urgent {
+	border-bottom: 2px solid #ffaa00;
+	margin-bottom: 0px;
+	color: #ffaa00;
+}
+
+.ws scale trough highlight {
+	background-color: white;
+}
+
 .icon {
-	font-family: monospace;
-	font-family: FiraCode Nerd Font;
+	font-family: "FiraCode Nerd Font", monospace;
 	font-weight: normal;
-	font-size: 90px;
+	font-size: 24px;
+}
+.big {
+	font-size: 28px;
+}
+.small {
+	font-size: 20px;
+}
+.icon-sm, .icon-sm label {
+	font-family: "FiraCode Nerd Font", monospace;
+	font-weight: normal;
+	font-size: 16px;
 }
 
 .bg {
-	//background-image: url("~/.background/Mojave-Night.jpg");
-	background-color: #000;//#161d2f;
-	opacity: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	border: 1px solid #5e6668;
 }
 
-.x {
-	font-size: 48px;
-	color: #fff;
+.sidebar-sub {
+	margin-top: 8px;
+	padding-bottom: 8px;
+	border-bottom: 2px solid white;
+}
+.sidebar-sub:last-child {
+	border-bottom: none;
 }
 
-.genwin {
-	border-radius: 16px;
-	background-color: #161d2f;
-	border: 5px solid #fff;
-}
-
-/* Profile Settings */
 .face {
-	background-size: 200px;
-	min-height: 200px;
-	min-width: 200px;
-	margin: 65px 0px 0px 0px;
+	background-size: 96px;
+	min-height: 96px;
+	min-width: 96px;
+	margin-top: 4px;
+	margin-left: 80px;
+	margin-right: 80px;
 	border-radius: 100%;
-	border: 5px solid #fff;
+	border: 4px solid #fff;
 	background-image: url("file:////home/val/.face.icon");
+	opacity: 1;
 }
-
-//.face:hover {
-//	border-radius: 25%;
-//}
 
 .login {
-	font-family: monospace;
-	font-family: FiraCode Nerd Font;
+	font-family: "FiraCode Nerd Font", monospace;
 	font-weight: bold;
-	font-size: 30px;
-	color: #fff;
-	background-color: #3d4558;
+	font-size: 28px;
 	border-radius: 5px;
-	padding-left: 0.5em;
-	padding-right: 0.5em;
+	color: #fff;
+/*	background-color: #3d4558;*/
+	background-color: #303030;
+	padding: 1px 0.5em;
+	border: 1px solid white;
 }
 
-/* System Settings */
-.cpu_bar, .ram_bar, scale trough {
-	all: unset;
-	background-color: #3d4558;
-	border-radius: 16px;
-	min-height: 28px;
-	min-width: 240px;
-}
-
-.cpu_bar label, .ram_bar label, .disk_bar label {
+.time-top {
 	font-family: monospace;
-}
-.cpu_bar .icon, .ram_bar .icon, .disk_bar .icon {
-	font-size: 40px;
-}
-
-.cpu_bar, .ram_bar, .disk_bar, scale trough highlight {
-	all: unset;
-	border-radius: 16px;
-}
-
-.cpu_bar scale trough highlight {
-	background-color: #A04A19;//#5A2123;
-}
-
-.ram_bar scale trough highlight {
-	background-color: #A04A19;
-}
-
-/* Clock Settings */
-.time_hour, .time_min {
-	color: #ffffff;
-	font-size: 70px;
+	font-size: 32px;
 	font-weight: bold;
 }
-
-.time_hour {
-	margin: 20px 0px 0px 25px;
+.time-bottom {
+	font-family: monospace;
+	font-size: 20px;
+	font-variant: small-caps;
 }
 
-.time_min {
-	margin: 0px 0px 10px 0px;
+.sys-info label {
+	font-family: "FiraCode Nerd Font", monospace;
+}
+.sys-info:first-child {
+	border-right: 2px solid white;
 }
 
-.time_meridiem {
-	color: #ffffff;
-	font-size: 40px;
-	font-weight: bold;
-	margin: 20px 0px 0px 0px;
-}
-
-.time_day {
-	color: #ffffff;
-	font-size: 30px;
-	font-weight: normal;
-	margin: 0px 0px 0px 25px;
-}
-
-/* Spotify Settings */
-.album_art {
-	background-size: 240px;
-	min-height: 240px;
-	min-height: 240px;
-	margin: 20px;
-	border-radius: 14px;
-}
-
-.wmbar {
-	background-color: rgba(0, 0, 0, 0.53);
-	border-radius: 16px;
+.cal-bg {
+	background-color: rgba(24, 24, 24, 0.2);
 }

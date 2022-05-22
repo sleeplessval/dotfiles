@@ -9,34 +9,28 @@ padding_x	=	8
 family = Fira Code
 size = 11
 
-[menu:cal]
-items = label:cal
-x = 1732
-y = 24
-
 [menu:lan]
 items = label:ssid label:myip button:pingtest
-x = 1616
-y = 24
-
-[menu:player]
-items = label:player
 x = 1632
-y = 24
+y = 32
 
 [menu:redshift]
 items = button:redshift label:rs_period label:rs_temp
-x = 1640
-y = 24
+x = 1632
+y = 32
 
 [menu:system]
-items = label:user button:term button:logout button:reboot button:poweroff
+items = label:user button:lock button:sleep button:reboot button:poweroff
 x = 5
-y = 24
+y = 32
 
 [button:logout]
 text = Logout
 command = i3-msg exit
+
+[button:lock]
+text = Lock
+command = slock
 
 [button:pingtest]
 text = Ping Test
@@ -55,9 +49,17 @@ command = reboot
 text = Redshift
 command = ~/.config/sysmenu/script/redshift_tog.sh
 
+[button:sleep]
+text = Sleep
+command = ~/.script/sleep.sh
+
 [button:term]
 text = Open Terminal
 command = wezterm
+
+[button:wally]
+text = Wally
+command = wally
 
 [label:cal]
 font = fira
@@ -67,11 +69,7 @@ strip = right
 
 [label:myip]
 font = fira
-text = $(ip addr | grep 192. | awk '{ print substr($2, 0, length($2) - 3 ) }')
-eval = true
-
-[label:player]
-text = $(playerctl metadata | head -n 1 | awk '{ print $1 }')
+text = $(~/.script/myip.sh)
 eval = true
 
 [label:rs_period]:
@@ -86,7 +84,7 @@ eval = true
 
 [label:ssid]
 font = fira
-text = $(iwctl station wlan0 show | grep Connected | awk '{ print $3 }')
+text = $(~/.config/sysmenu/script/ssid.sh)
 eval = true
 
 [label:user]
