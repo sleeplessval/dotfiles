@@ -3,9 +3,6 @@
 name = "rust"
 indent = { tab-width = 4, unit = "\t" }
 
-[language.auto-pairs]
-# no auto pairs >:(
-
 [[language]]
 name = "bash"
 indent = { tab-width = 4, unit = "\t" }
@@ -13,6 +10,10 @@ shebangs = ["sh", "bash", "/usr/bin/bash", "/usr/bin/sh"]
 
 [[language]]
 name = "c"
+indent = { tab-width = 4, unit = "\t" }
+
+[[language]]
+name = "cpp"
 indent = { tab-width = 4, unit = "\t" }
 
 [[language]]
@@ -34,6 +35,10 @@ indent = { tab-width = 4, unit = "\t" }
 
 [[language]]
 name = "json"
+indent = { tab-width = 4, unit = "\t" }
+
+[[language]]
+name = "lua"
 indent = { tab-width = 4, unit = "\t" }
 
 [[language]]

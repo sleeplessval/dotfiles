@@ -7,8 +7,8 @@
 syntax on
 filetype plugin on
 let g:onedark_termcolors = 256
-" colorscheme onedark
-colorscheme pablo
+colorscheme onedark
+" colorscheme pablo
 
 set autoindent
 set noexpandtab

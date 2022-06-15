@@ -10,6 +10,7 @@
 
 alias hx='helix'
 alias ls='ls --color=auto'
+alias lsd="lsd -l"
 alias imgcat="wezterm imgcat --height 50%"
 alias motd="rust-motd"
 

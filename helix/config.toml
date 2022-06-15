@@ -1,11 +1,14 @@
 theme = "val-onedark"
 
 [editor]
+auto-completion = false
+auto-format = false
 auto-pairs = false
-
-[editor.file-picker]
-hidden = false
+idle-timeout = 2000
 
 [editor.lsp]
 display-messages = true
+
+[keys.insert]
+C-space = "completion"
 

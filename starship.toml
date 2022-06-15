@@ -37,8 +37,8 @@ format = "[$symbol]($style) "
 #                   /____/            /____/             
 
 [cmake]
-#symbol = "C "
-symbol = " "
+symbol = "C "
+#symbol = " "
 
 [dotnet]
 format = "[$symbol($version )]($style)"
@@ -65,6 +65,9 @@ symbol = "Lua "
 
 [perl]
 symbol = "Perl "
+
+[php]
+symbol = "PHP "
 
 [python]
 symbol = "Py "
