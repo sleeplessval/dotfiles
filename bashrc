@@ -9,12 +9,14 @@
 [[ $- != *i* ]] && return
 
 alias hx='helix'
+alias imgcat="wezterm imgcat --height 50%"
 alias ls='ls --color=auto'
 alias lsd="lsd -l"
-alias imgcat="wezterm imgcat --height 50%"
 alias motd="rust-motd"
 
 export EDITOR=helix
+
+export BAT_CONFIG_PATH="$HOME/.config/bat.conf"
 
 eval "$(starship init bash)"
 eval "$(thefuck --alias)"
