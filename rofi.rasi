@@ -1,40 +1,36 @@
-configuration {
-	display-run: "";
-	display-window: "";
-	modi: "run,window";
-}
-
 * {
-  background-color: #282C3385;
-  border-color: #2E343FFF;
-  text-color: #8cA0AAFF;
-  spacing: 0;
-  width: 512px;
-  //	Height: 3 items
-  height: 228px;
-  //	Height: 4 items
-  //height: 284px;
+	background: #282C3385;
+	background-color: @background;
+	border-color: #2E343FFF;
+	text-color: #8cA0AAFF;
+	spacing: 0;
+	width: 512px;
+	//	Height: 3 items
+	height: 228px;
+	//	Height: 4 items
+	//height: 284px;
 }
 
 inputbar {
-  border: 0 0 1px 0;
-  children: [prompt,entry];
+	border: 0 0 1px 0;
+	children: [prompt,entry];
 }
 
 prompt {
-  padding: 16px;
-  border: 0 1px 0 0;
+	padding: 16px;
+	border: 0 1px 0 0;
 }
 
 textbox {
-  background-color: #2e343f25;
-  border: 0 0 1px 0;
-  border-color: #282C33;
-  padding: 8px 16px;
+	background-color: #2e343f25;
+	border: 0 0 1px 0;
+	border-color: #282C33;
+	padding: 8px 16px;
 }
 
 entry {
-  padding: 16px;
+	padding: 16px;
+	background-color: #00000000;
 }
 
 listview {
@@ -44,10 +40,16 @@ listview {
 }
 
 element {
-  border: 0 0 1px 0;
-  padding: 16px;
+	border: 0 0 1px 0;
+	padding: 16px;
+	background-color: #00000000;
 }
 
 element selected {
-  background-color: #2e343fa5;
+  background-color: #2e343f82;
 }
+
+element-text {
+	background-color: #00000000;
+}
+
