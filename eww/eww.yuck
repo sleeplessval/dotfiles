@@ -12,8 +12,7 @@
 (defvar sidebar_rev false)
 (defvar WM_MODE "default")
 
-(defpoll
-	DATETIME
+(defpoll DATETIME
 	:interval "2s"
 	"date +\"%a %b %d %I:%M %p\""
 )
@@ -29,10 +28,14 @@
 	:interval "2s"
 	"/home/val/.config/eww/scripts/lan.sh"
 )
-(defpoll PLAYING
-	:interval "50ms"
-	"playerctl status"
+(defpoll SCREENSAVER
+	:interval "3s"
+	"/home/val/.config/eww/scripts/screensaver.sh"
 )
+;;(defpoll PLAYING
+;;	:interval "50ms"
+;;	"playerctl status"
+;;)
 
 (deflisten i3-workspace "/home/val/.config/eww/bin/i3-ws")
 
@@ -43,7 +46,7 @@
 		:space-evenly false
 		:halign "start"
 		(button
-			:class "icon"
+			:class "icon md"
 			:onclick "exec ~/.script/sysmenu.py system &"
 			""
 		)
@@ -83,13 +86,26 @@
 		:orientation "h"
 		:spacing "3"
 		(revealer
-			:reveal {KEYBOARD != ""}
+			:reveal {KEYBOARD != "󰌌"}
 			:transition "slideleft"
 			:duration "350ms"
 			(button
-				:class "icon"
+				:class "icon big"
 				KEYBOARD
 			)
+		)
+	)
+)
+(defwidget screensaver []
+	(box
+		:class "module"
+		:space-evenly false
+		:orientation "h"
+		:spacing "3"
+		(button
+			:class "icon"
+			:onclick "~/.config/eww/scripts/toggle_screensaver.sh"
+			SCREENSAVER
 		)
 	)
 )
@@ -126,9 +142,9 @@
 		:orientation "h"
 		:spacing "3"
 		(button
-			:class "icon-sm"
+			:class "icon"
 			:onclick "/home/val/.config/eww/scripts/toggle_sidebar.sh"
-			{sidebar_rev ? "" : "﬿"}
+			{sidebar_rev ? "󰅗" : "󰙀"}
 		)
 	)
 )
@@ -153,6 +169,7 @@
 		:halign "end"
 		:class "right_modules"
 		(keyboard)
+		(screensaver)
 		(redshift)
 		(wifi)
 		(sidebar_toggle)
