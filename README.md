@@ -26,7 +26,8 @@ This repository contains most of my Linux configuration files.
               /____/     /_/            
 ```
 ### `i3_config`
-I use [i3-gaps](https://github.com/airblader/i3) exclusively. My setup is minimal and focus-oriented.
+
+I use [i3](https://i3wm.org) exclusively. My setup is minimal and focus-oriented.
 
 ---
 
@@ -39,7 +40,9 @@ I use [i3-gaps](https://github.com/airblader/i3) exclusively. My setup is minima
 /_/                             
 ```
 ### `picom.conf`
-I use [ibhagwan's picom fork](https://github.com/ibhagwan/picom), since it gives me the fewest artifacts on the GLX backend (and has dual-kawase). I use a softer dual-kawase and a lot of transparency.
+
+I use [picom](https://github.com/yshui/picom) as my compositor.
+I'm really sad I had to turn off i3's window borders.
 
 ---
 
