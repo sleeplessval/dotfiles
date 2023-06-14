@@ -1,7 +1,7 @@
 configuration {
 	font: "FiraCode Nerd Font 14";
 	display-run: "";
-	display-window: "";
+	display-window: "󰍉";
 	modi: "run,window";
 }
 @theme "/home/val/.config/rofi/themes/slate-black.rasi"

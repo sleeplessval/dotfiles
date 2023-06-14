@@ -9,8 +9,8 @@
 read_only = " "
 
 [jobs]
-symbol_threshold = 2
-number_threshold = 3
+symbol_threshold = 1
+number_threshold = 2
 symbol = "✦ "
 format = "[$symbol$number]($style)"
 
@@ -22,18 +22,19 @@ format = "[$symbol]($style) "
 symbol = ""
 
 [shell]
-disabled = true
+disabled = false
 bash_indicator = ""
-nu_indicator = "ν"
-powershell_indicator = "PS"
-zsh_indicator = "zsh"
+nu_indicator = "ν "
+powershell_indicator = "PS "
+xonsh_indicator = " "
+zsh_indicator = "z "
 style="cyan italic"
 format = "$indicator($style)"
 
 [shlvl]
 disabled = false
-threshold = 3
-symbol = "ﰬ"
+threshold = 4
+symbol = "↓"
 format = "[$symbol]($style) "
 
 #     __

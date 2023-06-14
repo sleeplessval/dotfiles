@@ -3,15 +3,15 @@
 if [ "$(pgrep -x redshift)" ]; then
 	period=$(redshift -p 2> /dev/null | grep Period | awk '{print $2}')
 	if [[ $period == 'Night' ]]; then
-		#echo ""
+		echo "󰖔"
 		#echo ""
-		echo ""
+		#echo ""
 		#echo "鈴"
 	elif [[ $period == 'Transition' ]]; then
-		echo ""
+		echo "󰖚"
 	else
-		echo "盛"
+		echo ""
 	fi
 else
-	echo ""
+	echo ""
 fi

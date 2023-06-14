@@ -2,7 +2,7 @@
 NAME="ErgoDox EZ Shine Keyboard"
 
 if ! xinput | grep "$NAME" > /dev/null; then
-	echo ""
+	echo "󰌐"
 	exit
 fi
 
@@ -12,7 +12,8 @@ CAPS="$(xinput --get-feedbacks $ID | grep led_mask | awk '{ print $3 }')"
 
 if [[ "$CAPS"  == "1" ]]; then
 	#echo "⇪"
-	echo ""
+	#echo ""
+	echo "󰌎"
 else
-	echo ""
+	echo "󰌌"
 fi
