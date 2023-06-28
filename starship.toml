@@ -8,6 +8,9 @@
 [directory]
 read_only = " "
 
+[hostname]
+ssh_symbol = ''
+
 [jobs]
 symbol_threshold = 1
 number_threshold = 2
@@ -36,6 +39,9 @@ disabled = false
 threshold = 4
 symbol = "↓"
 format = "[$symbol]($style) "
+
+[username]
+format = "[$user]($style)@"
 
 #     __
 #    / /   ____ _____  ____ ___  ______ _____ ____  _____
@@ -90,6 +96,11 @@ symbol = "Ruby "
 [rust]
 symbol = "Rs "
 #symbol = " "
+
+#  toolchain
+
+[gradle]
+symbol = " "
 
 #    ____  _____    _____                 __          __
 #   / __ \/ ___/   / ___/__  ______ ___  / /_  ____  / /____
