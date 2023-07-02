@@ -1,0 +1,23 @@
+[global]
+progress_full_character = "="
+progress_empty_character = "="
+progress_prefix = "["
+progress_suffix = "]"
+time_format = "%Y-%m-%d %H:%M"
+
+[banner]
+color = "light_white"
+#color = "red"
+# command = 'figlet -f slant "$(whoami)@$(hostname)"'
+command = "~/.config/rust-motd/banner.sh"
+
+[filesystems]
+root = "/"
+#secondary = "/mount/f"
+
+[uptime]
+prefix = "Uptime:"
+
+#[weather]
+#url = "https://wttr.in/Cary,North+Carolina?0"
+
