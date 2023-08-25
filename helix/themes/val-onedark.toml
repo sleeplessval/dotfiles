@@ -54,7 +54,7 @@ diagnostic = { modifiers = ["underlined"] }
 "ui.cursor.match" = { fg = "blue", modifiers = ["underlined"]}
 
 "ui.selection" = { bg = "light-gray" }
-"ui.selection.primary" = {} #{ bg = "gray" }
+"ui.selection.primary" = { bg = "gray" }
 
 "ui.linenr" = { fg = "linenr" }
 "ui.linenr.selected" = { fg = "white" }
@@ -85,3 +85,4 @@ light-black = "#2C323C"
 gray = "#3E4452"
 light-gray = "#5C6370"
 linenr = "#4B5263"
+
