@@ -29,8 +29,12 @@
 	"/home/val/.config/eww/scripts/lan.sh"
 )
 (defpoll SCREENSAVER
-	:interval "3s"
+	:interval "2s"
 	"/home/val/.config/eww/scripts/screensaver.sh"
+)
+(defpoll NOTIFICATION
+	:interval "2s"
+	"/home/val/.config/eww/scripts/dunst.sh"
 )
 ;;(defpoll PLAYING
 ;;	:interval "50ms"
@@ -109,7 +113,7 @@
 		)
 	)
 )
-(defwidget redshift []
+(defwidget notification []
 	(box
 		:class "module"
 		:space-evenly false
@@ -117,6 +121,19 @@
 		:spacing "3"
 		(button
 			:class "icon"
+			:onclick "dunstctl set-paused toggle"
+			NOTIFICATION
+		)
+	)
+)
+(defwidget redshift []
+	(box
+		:class "module"
+		:space-evenly false
+		:orientation "h"
+		:spacing "3"
+		(button
+			:class "icon lg"
 			:onclick "exec ~/.script/sysmenu.py redshift &"
 			REDSHIFT
 		)
@@ -170,6 +187,7 @@
 		:class "right_modules"
 		(keyboard)
 		(screensaver)
+		(notification)
 		(redshift)
 		(wifi)
 		(sidebar_toggle)
