@@ -9,6 +9,9 @@ idle-timeout = 2000
 [editor.lsp]
 display-messages = true
 
+[editor.smart-tab]
+enable = false
+
 [keys.insert]
 C-space = "completion"
 

@@ -8,7 +8,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias exa='exa --tree'
+if [ -f "$HOME/.profile" ]; then
+	source "$HOME/.profile"
+fi
+
+alias exa='exa --tree --git-ignore'
 alias flush='cd; clear; motd'
 alias fortune='fortune-rs'
 alias hx='helix'
@@ -37,7 +41,6 @@ if [[ $TERM == 'linux' ]]; then
 	return
 fi
 
-#export PS1="$(starship prompt)"
 if [[ $SHLVL -le 3 ]]; then
 	motd
 fi
