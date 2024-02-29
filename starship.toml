@@ -14,8 +14,8 @@ ssh_symbol = ''
 [jobs]
 symbol_threshold = 1
 number_threshold = 2
-symbol = "✦ "
-format = "[$symbol$number]($style)"
+symbol = "✦"
+format = "[$symbol$number]($style) "
 
 [os]
 disabled = true
@@ -23,6 +23,7 @@ format = "[$symbol]($style) "
 
 [package]
 symbol = ""
+format = "[$symbol$version]($style) "
 
 [shell]
 disabled = false
